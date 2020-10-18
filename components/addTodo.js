@@ -41,6 +41,7 @@ export default function AddTodo({ addNewTodo }) {
 
 const styles = StyleSheet.create({
     textArea: {
+        fontFamily: 'Anton-Regular',
         height: 150,
         justifyContent: "flex-start",
         textAlignVertical: 'top'

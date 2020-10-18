@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Button, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function TodoItem({ item, pressHandler, onView }) {
+export default function TodoItem({ item, pressHandler, onView, onEdit }) {
 
     const deleteItem = (id) => {
         Alert.alert(
@@ -29,7 +29,7 @@ export default function TodoItem({ item, pressHandler, onView }) {
                             size={30}
                             color="#900"
                             style={styles.icon}
-                            onPress={() => Alert.alert("Comming Soon")}
+                            onPress={() => onEdit(item)}
                         />
                         <Icon
                             name="trash-o"

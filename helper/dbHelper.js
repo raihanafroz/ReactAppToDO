@@ -100,3 +100,28 @@ export const getData = async () => {
         }
     });
 }
+
+
+
+export const updateData = (id, text) => {
+    console.log("update data: Id = " + id + ", text: " + text)
+    return new Promise((resolve, reject) => {
+        try {
+            db.transaction((tx) => {
+                tx.executeSql(
+                    `UPDATE table_todo SET data = ? WHERE id=?`,
+                    [text, id],
+                    (tx, results) => {
+                        if (results.rowsAffected > 0) {
+                            resolve(true)
+                        } else {
+                            resolve(false)
+                        }
+                    }
+                );
+            });
+        } catch (e) {
+            resolve(false)
+        }
+    });
+}
