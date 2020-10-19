@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Button, Alert } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function TodoItem({ item, pressHandler, onView, onEdit }) {

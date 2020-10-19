@@ -2,7 +2,7 @@ import { openDatabase } from 'react-native-sqlite-storage';
 var db = openDatabase({ name: 'SQLite.db' });
 
 export const dropTable = () => {
-    console.log("Delete Table : ")
+    // console.log("Delete Table : ")
     db.transaction(function (txn) {
         txn.executeSql(`DROP TABLE IF EXISTS table_todo`, []);
         // txn.executeSql( sql, []  );
@@ -10,13 +10,13 @@ export const dropTable = () => {
 }
 
 export const createToDoTable = () => {
-    console.log("create table : ")
+    // console.log("create table : ")
     db.transaction(function (txn) {
         txn.executeSql(
             `SELECT name FROM sqlite_master WHERE type='table' AND name='table_todo'`,
             [],
             function (tx, res) {
-                console.log('item:', res.rows.length);
+                // console.log('item:', res.rows.length);
                 if (res.rows.length == 0) {
                     // CREATE TABLE IF NOT EXISTS ${tableName}(id INTEGER PRIMARY KEY AUTOINCREMENT, data TEXT, status INTEGER DEFAULT 0)
                     txn.executeSql(`DROP TABLE IF EXISTS table_todo`, []);
@@ -28,7 +28,7 @@ export const createToDoTable = () => {
 }
 
 export const insertData = (data) => {
-    console.log("insert data: " + data)
+    // console.log("insert data: " + data)
     return new Promise((resolve, reject) => {
         try {
             db.transaction((tx) => {
@@ -52,7 +52,7 @@ export const insertData = (data) => {
 }
 
 export const deleteData = (id) => {
-    console.log("Delete data: " + id)
+    // console.log("Delete data: " + id)
     return new Promise((resolve, reject) => {
         try {
             db.transaction((tx) => {
@@ -75,7 +75,7 @@ export const deleteData = (id) => {
 }
 
 export const getData = async () => {
-    console.log("Getting All Data: ")
+    // console.log("Getting All Data: ")
     return new Promise((resolve, reject) => {
         try {
             db.transaction(tx => {
@@ -104,7 +104,7 @@ export const getData = async () => {
 
 
 export const updateData = (id, text) => {
-    console.log("update data: Id = " + id + ", text: " + text)
+    // console.log("update data: Id = " + id + ", text: " + text)
     return new Promise((resolve, reject) => {
         try {
             db.transaction((tx) => {

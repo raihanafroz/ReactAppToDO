@@ -2,23 +2,15 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  Button,
   FlatList,
-  Alert,
   TouchableWithoutFeedback,
   Keyboard,
-  Modal,
-  Text
 } from 'react-native';
-import * as Font from 'expo-font'
-
-import { openDatabase } from 'react-native-sqlite-storage';
-var db = openDatabase({ name: 'SQLite.db' });
 
 import Header from './components/header';
 import TodoItem from './components/todoItem';
 import AddTodo from './components/addTodo';
-import { insertData, createToDoTable, dropTable, getData, deleteData, updateData } from './helper/dbHelper';
+import { insertData, createToDoTable, getData, deleteData, updateData } from './helper/dbHelper';
 import ViewModal from './components/viewModal';
 import EditModal from './components/editModal';
 
@@ -47,15 +39,6 @@ export default class App extends React.Component {
     this.populateDataToState()
   }
 
-  loadFont = () => {
-    Font.loadAsync({
-      'Anton-Regular': require('./assets/fonts/Anton-Regular.ttf'),
-      'FredokaOne-Regular': require('./assets/fonts/FredokaOne-Regular.ttf'),
-      'Righteous-Regular': require('./assets/fonts/Righteous-Regular.ttf'),
-      'Grandstander-VariableFont_wght': require('./assets/fonts/Grandstander-VariableFont_wght.ttf'),
-      'Grandstander-Italic-VariableFont_wght': require('./assets/fonts/Grandstander-Italic-VariableFont_wght.ttf'),
-    })
-  }
 
   populateDataToState = () => {
     getData()
@@ -146,7 +129,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <TouchableWithoutFeedback
         onPress={() => { Keyboard.dismiss() }}

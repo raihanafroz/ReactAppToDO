@@ -24,7 +24,6 @@ export default class ViewModal extends React.Component {
 
   onSubmitHandler = () => {
     this.props.onUpdate(this.state.id, this.state.text)
-    console.log(this.state.text)
   }
 
   render(){
@@ -73,7 +72,6 @@ export default class ViewModal extends React.Component {
 
 const styles = StyleSheet.create({
   textArea: {
-    fontFamily: 'Anton-Regular',
     height: 250,
     justifyContent: "flex-start",
     textAlignVertical: 'top'

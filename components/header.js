@@ -27,5 +27,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#0037ff'
   }
 });
-
-// export default Header;
